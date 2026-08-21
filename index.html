@@ -1,73 +1,64 @@
 <!DOCTYPE html>
-<!-- 첫 읽기 연습책 홈 v1 — 4권 선택 화면. 책 본문은 books/book1~4.html (각 책 폴더 outputs/ 최신본 복사) -->
 <html lang="ko">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>첫 읽기 연습책</title>
 <style>
-  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-  html,body{height:100%}
-  body{
-    font-family:"Malgun Gothic","Apple SD Gothic Neo",sans-serif;
-    background:linear-gradient(160deg,#FFF8E7 0%,#FFEFD5 55%,#FFE4C4 100%);
-    display:flex;flex-direction:column;align-items:center;
-    min-height:100vh;padding:4vh 4vw 2vh;
-  }
-  h1{
-    font-size:clamp(28px,5.2vmin,52px);color:#5D4037;letter-spacing:.02em;
-    display:flex;align-items:center;gap:.4em;
-  }
-  .sub{margin-top:.8vh;font-size:clamp(14px,2.2vmin,22px);color:#8D6E63}
-  .grid{
-    flex:1;display:grid;grid-template-columns:repeat(2,minmax(240px,420px));
-    gap:clamp(14px,3vmin,30px);align-content:center;justify-content:center;
-    width:100%;max-width:960px;padding:3vh 0;
-  }
-  @media (max-width:560px){.grid{grid-template-columns:minmax(240px,1fr)}}
-  a.card{
-    display:flex;align-items:center;gap:clamp(12px,2.4vmin,24px);
-    background:#fff;border-radius:26px;padding:clamp(18px,3.4vmin,34px);
-    text-decoration:none;border:4px solid transparent;
-    box-shadow:0 6px 18px rgba(93,64,55,.14);
-    transition:transform .12s ease,box-shadow .12s ease;
-  }
-  a.card:hover,a.card:focus-visible{transform:translateY(-4px);box-shadow:0 12px 26px rgba(93,64,55,.2)}
-  a.card:active{transform:scale(.97)}
-  .c1{border-color:#FFD54F}.c2{border-color:#AED581}.c3{border-color:#81D4FA}.c4{border-color:#F8BBD0}
-  .emoji{
-    font-size:clamp(44px,8.5vmin,84px);line-height:1;
-    filter:drop-shadow(0 3px 4px rgba(0,0,0,.12));
-  }
-  .txt{display:flex;flex-direction:column;gap:.5vh;min-width:0}
-  .vol{font-size:clamp(13px,2vmin,19px);font-weight:700;letter-spacing:.06em;color:#fff;
-    border-radius:999px;padding:.22em .9em;width:max-content}
-  .c1 .vol{background:#F9A825}.c2 .vol{background:#7CB342}.c3 .vol{background:#039BE5}.c4 .vol{background:#EC407A}
-  .name{font-size:clamp(20px,3.4vmin,34px);font-weight:800;color:#4E342E;word-break:keep-all}
-  footer{font-size:clamp(12px,1.8vmin,16px);color:#A1887F;padding:1.2vh 0 .6vh;text-align:center}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Apple SD Gothic Neo','Malgun Gothic',sans-serif;font-weight:700;color:#4A3F35;
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(circle at 30% 20%, #FFFDF8 0%, #FBEEDF 60%, #F6E4CF 100%);padding:20px}
+.box{background:#fff;border:3px solid #FFE0B2;border-radius:24px;padding:40px 34px;max-width:440px;width:100%;
+  text-align:center;box-shadow:0 10px 26px rgba(120,90,60,.14)}
+.emoji{font-size:52px;margin-bottom:10px}
+h1{font-size:22px;margin-bottom:14px;word-break:keep-all}
+p{color:#8A7C6E;font-size:14px;line-height:1.7;margin-bottom:22px;word-break:keep-all}
+input{width:100%;font-family:inherit;font-weight:700;font-size:17px;text-align:center;padding:12px;
+  border:2px solid #F0E2D2;border-radius:12px;outline:none;margin-bottom:12px}
+input:focus{border-color:#F9A825}
+button{width:100%;font-family:inherit;font-weight:800;font-size:17px;padding:13px;border:none;border-radius:12px;
+  background:#F9A825;color:#fff;cursor:pointer}
+button:disabled{background:#e8cf9a;cursor:wait}
+#msg{margin-top:12px;font-size:13px;font-weight:800;color:#C0392B;min-height:18px}
+.foot{margin-top:18px;font-size:11.5px;color:#b8a898;line-height:1.6;word-break:keep-all}
 </style>
 </head>
 <body>
-  <h1>📖 첫 읽기 연습책</h1>
-  <div class="sub">읽고 싶은 책을 눌러 주세요</div>
-  <nav class="grid">
-    <a class="card c1" href="books/book1.html">
-      <span class="emoji">🐤</span>
-      <span class="txt"><span class="vol">1권</span><span class="name">아기 새가 포르르</span></span>
-    </a>
-    <a class="card c2" href="books/book2.html">
-      <span class="emoji">🐰</span>
-      <span class="txt"><span class="vol">2권</span><span class="name">토끼가 우르르</span></span>
-    </a>
-    <a class="card c3" href="books/book3.html">
-      <span class="emoji">🦢</span>
-      <span class="txt"><span class="vol">3권</span><span class="name">루루라라 기러기네</span></span>
-    </a>
-    <a class="card c4" href="books/book4.html">
-      <span class="emoji">🐘</span>
-      <span class="txt"><span class="vol">4권</span><span class="name">코코 코끼리 두두 두더지</span></span>
-    </a>
-  </nav>
-  <footer>첫 읽기 연습책 학습지 by 민예원선생님 📧 iepnote@gmail.com</footer>
+<div class="box">
+  <div class="emoji">🔒</div>
+  <h1>첫 읽기 연습책</h1>
+  <p>본 자료는 저작권 보호를 위해 비밀번호가 설정되어 있습니다.<br>수업용 비밀번호를 입력해 주세요.</p>
+  <input id="pw" type="password" placeholder="비밀번호" autocomplete="off">
+  <button id="go" type="button">열기</button>
+  <div id="msg"></div>
+  <div class="foot">저작권법 제25조 제2항에 따라 학교 수업 목적으로 제작된 자료입니다.<br>수업 공간 외 사용과 무단 배포를 삼가 주세요. · 민예원선생님</div>
+</div>
+<script>
+var SALT="NyE82re65U83CMU1gp4htQ==", IV="NpyjKdkIKwsSgR1m", DATA="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";
+function b2u(b){ var s=atob(b), u=new Uint8Array(s.length); for(var i=0;i<s.length;i++) u[i]=s.charCodeAt(i); return u; }
+async function unlock(pw){
+  var enc=new TextEncoder();
+  var km=await crypto.subtle.importKey("raw",enc.encode(pw),"PBKDF2",false,["deriveKey"]);
+  var key=await crypto.subtle.deriveKey({name:"PBKDF2",salt:b2u(SALT),iterations:310000,hash:"SHA-256"},km,{name:"AES-GCM",length:256},false,["decrypt"]);
+  var pt=await crypto.subtle.decrypt({name:"AES-GCM",iv:b2u(IV)},key,b2u(DATA));
+  try{ sessionStorage.setItem("frLockPw",pw); }catch(e){}
+  var txt=new TextDecoder("utf-8").decode(pt);
+  setTimeout(function(){ document.open(); document.write(txt); document.close(); },30);
+}
+var btn=document.getElementById("go"), inp=document.getElementById("pw"), msg=document.getElementById("msg");
+function tryGo(){
+  var pw=inp.value; if(!pw) return;
+  btn.disabled=true; btn.textContent="여는 중…"; msg.textContent="";
+  unlock(pw).catch(function(){ btn.disabled=false; btn.textContent="열기"; msg.textContent="비밀번호가 맞지 않아요. 다시 입력해 주세요."; inp.select(); });
+}
+btn.onclick=tryGo;
+inp.addEventListener("keydown",function(e){ if(e.key==="Enter") tryGo(); });
+try{
+  var saved=sessionStorage.getItem("frLockPw");
+  if(saved){ btn.disabled=true; btn.textContent="여는 중…"; unlock(saved).catch(function(){ try{sessionStorage.removeItem("frLockPw");}catch(e){} btn.disabled=false; btn.textContent="열기"; inp.focus(); }); }
+  else inp.focus();
+}catch(e){}
+</script>
 </body>
 </html>
